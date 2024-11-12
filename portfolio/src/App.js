@@ -5,6 +5,9 @@ import './App.css';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
 import Nav from './Components/NavBar/Nav';
+import Landing from './Components/LandingPage/Landing';
+import Projects from './Components/Projects/Projects';
+import Project1 from './Components/Projects/Project1';
 
 function App() {
   return (
@@ -14,7 +17,9 @@ function App() {
           <Route path="/" element={
             <>
             <Nav />
+            <Landing />
               <About />
+              <Projects />
               <Contact />
               <Footer />
             </>

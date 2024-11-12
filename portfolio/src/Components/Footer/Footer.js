@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavHashLink } from 'react-router-hash-link';
 import "./Footer.css";
 import SocialMediaIcons from "./SocialMediaIcons";
 

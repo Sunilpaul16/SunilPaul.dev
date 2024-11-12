@@ -1,5 +1,5 @@
 import PurpleArrows from "../LandingPage/PurpleArrows";
-import DarkWave from "../Waver/DarkWave";
+import DarkWave from "../Waves/DarkWave";
 import "./Landing.css";
 import LeftSocialMediaIcons from "./LeftSocialMediaIcons";
 

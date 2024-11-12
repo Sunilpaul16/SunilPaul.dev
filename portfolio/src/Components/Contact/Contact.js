@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavHashLink } from 'react-router-hash-link';
-import LightWave from '../Waver/LightWave';
+import LightWave from '../Waves/LightWave';
 import './Contact.css';
 import { FaLinkedin, FaMailBulk } from "react-icons/fa";
 

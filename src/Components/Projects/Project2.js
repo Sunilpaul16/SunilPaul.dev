@@ -1,65 +1,27 @@
 import { FaGithub } from "react-icons/fa";
-import DarkWave from "../Waves/DarkWave.js";
-import "./ProjectLight.css";
-import { useMediaQuery } from "react-responsive";
+import LightWave from "../Waves/LightWave";
+import "./ProjectDark.css";
 
-function Project1({ id }) {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 769px)",
-  });
-
+function Project2() {
   return (
-    <article id={id} className="project light">
+    <article className="project dark">
       <div className="project__main">
-        <img
-          className="project__image project__specialMobileImage"
-          src="/images/Hop"
-          alt="Trace"
-          width="15%"
-          height="auto"
-          loading="lazy"
-        />
-        {isDesktopOrLaptop && (
-          <>
-            <img
-              className="project__image"
-              src="/images/Hop.png"
-              alt="Trace"
-              width="15%"
-              height="auto"
-              loading="lazy"
-            />
-            <img
-              className="project__image"
-              src="/images/Hop.png"
-              alt="Trace"
-              width="15%"
-              height="auto"
-              loading="lazy"
-            />
-          </>
-        )}
-
-        <div data-aos="fade-left" className="project__right">
-          <h3 className="project__title">Hop</h3>
+        <div data-aos="fade-right" className="project__left">
+          <h3 className="project__title project__titleDark">
+          Hop
+          </h3>
           <p className="project__description project__body">
-            A <span className="project__specialText">a web app designed</span> to enhance
-            collaborative experiences through Shareable Browsers,{" "}
-            <span className="project__specialText">
-            allowing users to host watch parties,
-            collaborate on projects, or browse together seamlessly.
-            </span>
-
+            A <span className="project__specialText">a web app</span> designed
+            to enhance collaborative experiences through Shareable Browsers,
+            allowing  <span className="project__specialText">users to host</span>{" "}
+            watch parties, collaborate on projects, or browse together seamlessly.
           </p>
           <p className="project__tech project__body">
-            &gt; Next.js · Express.js · Drizzle
-            · Typescript · PostgreSQL · Docker
-            · Socket.IO · Shadcn UI
-
+            &gt; Next.js · TypeScript  · Tailwind CSS · Socket.io · WebRTC
           </p>
           <a
-            className="project__sourceCode"
-            href="https://github.com/Sunilpaul16/Hop"
+            className="project__sourceCodeDark"
+            href="https://github.com/sunilpaul16/Hop"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="=Website GitHub Repository"
@@ -68,10 +30,20 @@ function Project1({ id }) {
             <h3 className="project__sourceCodeText">Source Code</h3>
           </a>
         </div>
+        <img
+          className="project__image project__imageDark"
+          src="/images/Hop.jpg"
+          srcset="/images/Hop.jpg 750w, /images/Hop.jpg 1468w"
+          sizes="50vw"
+          alt="Hop"
+          width="50%"
+          height="auto"
+          loading="lazy"
+        />
       </div>
-      <DarkWave />
+      <LightWave />
     </article>
   );
 }
 
-export default Project1;
+export default Project2;

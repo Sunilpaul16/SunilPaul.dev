@@ -25,7 +25,6 @@ function Project3() {
             <span className="project__specialText">for their pets</span>. Integrated TypeScript
             in the codebase to improve type safety,
             enhance code clarity, and boost developer productivity{" "}
-            <span className="project__specialText">Spoonacular API</span>.
           </p>
           <p className="project__tech project__body">
             &gt; React Native · TypeScript · Jest  · MongoDB · Google Maps API

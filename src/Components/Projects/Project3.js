@@ -10,7 +10,6 @@ function Project1({ id }) {
 
   return (
     <article id={id} className="project light">
-      <h2 className="project__header">Experience</h2>
       <div className="project__main">
         <img
           className="project__image project__specialMobileImage"
@@ -42,7 +41,7 @@ function Project1({ id }) {
         )}
 
         <div data-aos="fade-left" className="project__right">
-          <h3 className="project__title">Trace</h3>
+          <h3 className="project__title">PawGang</h3>
           <p className="project__description project__body">
             A <span className="project__specialText">mobile app</span> that centralizes
             help manage life. Allows users to{" "}
@@ -57,7 +56,7 @@ function Project1({ id }) {
           </p>
           <a
             className="project__sourceCode"
-            href="https://github.com/Sunilpaul16/Trace"
+            href="https://github.com/Sunilpaul16/PawGang"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="=Website GitHub Repository"

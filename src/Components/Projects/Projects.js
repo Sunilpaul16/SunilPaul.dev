@@ -4,8 +4,8 @@ function Projects() {
   return (
     <section className="projects">
       <Project1 id="project1" />
-      <Project2 id="project2" />
-      <Project3 id="project3" />
+      <Project1 id="project2" />
+      <Project1 id="project3" />
     </section>
   );
 }

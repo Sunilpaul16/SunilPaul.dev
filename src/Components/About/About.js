@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
+import LightWave from '../Waves/LightWave';
+
 import './About.css';
 
 const About = () => (
@@ -32,6 +34,7 @@ const About = () => (
       width="300"
       height="300"
     />
+      <LightWave />
   </section>
 );
 

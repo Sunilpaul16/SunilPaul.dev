@@ -11,9 +11,9 @@ function Project2() {
           Hop
           </h3>
           <p className="project__description project__body">
-            A <span className="project__specialText">a web app</span> designed
+            A web app designed
             to enhance collaborative experiences through Shareable Browsers,
-            allowing  <span className="project__specialText">users to host</span>{" "}
+            allowing  users to host{" "}
             watch parties, collaborate on projects, or browse together seamlessly.
           </p>
           <p className="project__tech project__body">

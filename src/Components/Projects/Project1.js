@@ -2,6 +2,7 @@ import { FaGithub } from "react-icons/fa";
 import DarkWave from "../Waves/DarkWave.js";
 import "./ProjectLight.css";
 import { useMediaQuery } from "react-responsive";
+// import "aos/dist/aos.css";
 
 function Project1({ id }) {
   const isDesktopOrLaptop = useMediaQuery({
@@ -44,13 +45,12 @@ function Project1({ id }) {
         <div data-aos="fade-left" className="project__right">
           <h3 className="project__title">Trace</h3>
           <p className="project__description project__body">
-            A <span className="project__specialText">mobile app</span> that centralizes
-            help manage life. Allows users to{" "}
-            <span className="project__specialText">
-            keep track of everything in one convenient place
-            </span>
-
+            A mobile application that helps users track their symptoms and
+            provides them with a list of possible diseases based on their
+            symptoms. It also provides the user with a list of nearby hospitals
+            and doctors.
           </p>
+
           <p className="project__tech project__body">
             &gt; React Native · Expo · MongoDB · Tailwind CSS
 

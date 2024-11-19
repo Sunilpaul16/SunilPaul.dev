@@ -1,5 +1,5 @@
 .footer {
-  height: 27.5vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +9,3 @@
   background-image: linear-gradient(315deg, #dee3ee 0%, #f5f7fa 74%);
 }
 
-.footer__copyright {
-  font-size: 12px;
-}

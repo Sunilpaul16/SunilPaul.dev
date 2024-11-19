@@ -11,11 +11,11 @@ function Project2() {
           Hop
           </h3>
           <p className="project__description project__body">
-            A web app designed
-            to enhance collaborative experiences through Shareable Browsers,
-            allowing  users to host{" "}
-            watch parties, collaborate on projects, or browse together seamlessly.
-          </p>
+    Hop is an innovative web application designed to elevate collaborative experiences. With its flagship feature, Shareable Browsers, users can seamlessly host watch parties, collaborate on projects, or browse together in real time, redefining the way we connect online.
+    <br />
+    <br />
+    The app focuses on creating a fluid, interactive environment where users can share ideas, content, and experiences without the hassle of switching between platforms. Its design ensures a smooth and intuitive experience, fostering meaningful collaboration and communication.
+  </p>
           <p className="project__tech project__body">
             &gt; Next.js · TypeScript  · Tailwind CSS · Socket.io · WebRTC
           </p>
@@ -30,15 +30,32 @@ function Project2() {
             <h3 className="project__sourceCodeText">Source Code</h3>
           </a>
         </div>
-        <img
-          className="project__image project__imageDark"
-          src="/images/Hop.jpg"
-          srcSet="/images/Hop.jpg 750w, /images/Hop.jpg 1468w"
-          sizes="50vw"
-          alt="Hop"
-          width="50%"
+
+         <img
+          className="project__image project__specialMobileImage"
+          src="/Hop_image1.png"
+          alt="Trace"
+          width="15%"
           height="auto"
           loading="lazy"
+          background="transparent"
+        /><img
+          className="project__image project__specialMobileImage"
+          src="/Hopgif.gif"
+          alt="Trace"
+          width="15%"
+          height="auto"
+          loading="lazy"
+          background="transparent"
+        />
+         <img
+          className="project__image project__specialMobileImage"
+          src="/Hop_iamge2.png"
+          alt="Trace"
+          width="15%"
+          height="auto"
+          loading="lazy"
+          background="transparent"
         />
       </div>
       <LightWave />

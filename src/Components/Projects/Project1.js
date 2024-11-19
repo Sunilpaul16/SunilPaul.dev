@@ -15,11 +15,12 @@ function Project1({ id }) {
       <div className="project__main">
         <img
           className="project__image project__specialMobileImage"
-          src="/images/Trace"
+          src="/Trace_onboarding.png"
           alt="Trace"
           width="15%"
           height="auto"
           loading="lazy"
+          background="transparent"
         />
         {isDesktopOrLaptop && (
           <>
@@ -45,11 +46,11 @@ function Project1({ id }) {
         <div data-aos="fade-left" className="project__right">
           <h3 className="project__title">Trace</h3>
           <p className="project__description project__body">
-            A mobile application that helps users track their symptoms and
-            provides them with a list of possible diseases based on their
-            symptoms. It also provides the user with a list of nearby hospitals
-            and doctors.
-          </p>
+    Trace is a versatile mobile application designed to centralize and organize users' virtual activities, including books, games, movies, and TV shows. By keeping all these interests in one place, Trace offers a streamlined and efficient way for users to track their progress and manage their hobbies across various mediums.
+    <br />
+    <br />
+    The app prioritizes user convenience, providing an intuitive interface that makes it easy to monitor activities, stay organized, and discover new interests without juggling multiple platforms.
+  </p>
 
           <p className="project__tech project__body">
             &gt; React Native · Expo · MongoDB · Tailwind CSS

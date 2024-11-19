@@ -15,9 +15,9 @@ function Landing() {
       <hr className="landing__hr" />
 
       <div className="landing__bottomText">
-        <h1 className="landing__mainText">####</h1>
-        <h1 className="landing__mainText">####</h1>
-      </div>
+    <h1 className="landing__mainText">Building innovative solutions.</h1>
+    <h1 className="landing__mainText">Empowering digital experiences.</h1>
+  </div>
 
       <PurpleArrows />
 

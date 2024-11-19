@@ -9,7 +9,7 @@ function Project3() {
         <img
           className="project__image"
           src="/images/PawGang.png"
-          srcset="/images/PawGang.png 750w, /images/PawGang.png 1468w"
+          srcSet="/images/PawGang.png 750w, /images/PawGang.png 1468w"
           sizes="50vw"
           alt="PawGang"
           width="50%"

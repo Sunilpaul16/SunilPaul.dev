@@ -8,13 +8,13 @@ function Nav({ setClicked, clicked }) {
     <nav className={`Nav ${clicked ? "active" : ""}`}>
       {navItems.map((item) => (
         <NavItem
+          key={item.name}
           setClicked={setClicked}
           clicked={clicked}
           name={item.name}
           link={item.link}
         />
       ))}
-      <ResumeButton />
     </nav>
   );
 }

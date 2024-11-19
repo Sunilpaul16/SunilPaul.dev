@@ -6,11 +6,15 @@ function PurpleArrows() {
     <NavHashLink
       className="purpleArrows"
       to="/#about"
-      scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "end" })}
-    >
+
+      scroll={(el) => {
+        const yOffset = -10;
+        const yPosition = el.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: yPosition, behavior: "smooth" });
+      }}    >
       <img
         className="purpleArrows"
-        src="/images/bottom_purple_arrows.svg"
+        src="/bottom_purple_arrows.svg"
         alt="bottom purple arrows"
       />
     </NavHashLink>

@@ -33,7 +33,7 @@ function Project2() {
         <img
           className="project__image project__imageDark"
           src="/images/Hop.jpg"
-          srcset="/images/Hop.jpg 750w, /images/Hop.jpg 1468w"
+          srcSet="/images/Hop.jpg 750w, /images/Hop.jpg 1468w"
           sizes="50vw"
           alt="Hop"
           width="50%"

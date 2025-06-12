@@ -1,6 +1,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
+import { ReactNode } from "react";
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -11,9 +13,6 @@ export const metadata = {
   title: "Sunil Paul Portfolio",
   description: "My NextJS Portfolio",
 };
-
-import { ReactNode } from "react";
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">

@@ -24,7 +24,7 @@ const Projects = () => {
               ({ project, title, description, language, link, demo }, idx) => (
                 <li
                   key={idx}
-                  className="hover:hover-glow w-full bg-[#0F0F0F] duration-500 p-9 cursor-pointer flex flex-col rounded-2xl"
+                  className="hover-glow w-full bg-[#0F0F0F] duration-500 p-9 cursor-pointer flex flex-col rounded-2xl"
                 >
                   <div className="flex flex-col h-full">
                     {/* Title and Actions */}

@@ -35,7 +35,7 @@ const Hero = () => {
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
         <a
           href="#contact"
-          className="px-10 py-3 bg-blue-700 hover:bg-opacity-80 rounded-full flex items-center gap-2 shadow-md transition-all"
+          className="px-10 py-3 bg-blue-700 hover:bg-blue-700/70 rounded-full flex items-center gap-2 shadow-md transition-all"
           aria-label="Get in touch with Sunil"
         >
           Contact Me
@@ -45,7 +45,7 @@ const Hero = () => {
           download
           target="_blank"
           rel="noopener noreferrer"
-          className="px-10 py-3 border rounded-full border-gray-500 hover:shadow-lg hover:text-blue-700 hover:hover-glow flex items-center gap-2 transition-all"
+          className="px-10 py-3 border rounded-full border-gray-500 hover:shadow-lg hover:text-blue-700 hover-glow flex items-center gap-2 transition-all"
           aria-label="Download Raul's resume in PDF format"
         >
           Download Resume

@@ -65,7 +65,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 bg-[#0F0F0F] shadow rounded-2xl hover:hover-glow">
+          <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 bg-[#0F0F0F] shadow rounded-2xl hover-glow">
             <form onSubmit={onSubmit} className="space-y-4">
               {fields.map((field, index) => (
                 <div key={index}>

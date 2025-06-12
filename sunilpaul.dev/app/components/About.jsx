@@ -1,4 +1,4 @@
-import { assets, infoList, toolList } from "@/assets/assets";
+import { assets, infoList } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 
@@ -42,7 +42,7 @@ const About = () => {
             {infoList.map(({ icon, title, description }, index) => {
               return (
                 <li
-                  className="bg-[#0F0F0F] rounded-3xl p-7 cursor-pointer hover:hover-glow duration-500"
+                  className="bg-[#0F0F0F] rounded-3xl p-7 cursor-pointer hover-glow duration-500"
                   key={index}
                 >
                   <Image

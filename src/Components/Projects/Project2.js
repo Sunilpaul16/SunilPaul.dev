@@ -30,29 +30,11 @@ function Project2() {
             <h3 className="project__sourceCodeText">Source Code</h3>
           </a>
         </div>
-
-         <img
-          className="project__image project__specialMobileImage"
-          src="/Hop_image1.png"
-          alt="Trace"
-          width="15%"
-          height="auto"
-          loading="lazy"
-          background="transparent"
-        /><img
+        <img
           className="project__image project__specialMobileImage"
           src="/Hopgif.gif"
           alt="Trace"
-          width="15%"
-          height="auto"
-          loading="lazy"
-          background="transparent"
-        />
-         <img
-          className="project__image project__specialMobileImage"
-          src="/Hop_iamge2.png"
-          alt="Trace"
-          width="15%"
+          width="35%"
           height="auto"
           loading="lazy"
           background="transparent"

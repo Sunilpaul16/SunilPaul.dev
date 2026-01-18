@@ -10,8 +10,8 @@ const links = [
 
 export function HomeSidebar() {
   return (
-    <aside className="flex w-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950 lg:w-full lg:max-w-[11rem] lg:shrink-0">
-      <nav className="flex flex-row gap-4 overflow-x-auto lowercase lg:flex-col lg:gap-5 lg:overflow-visible">
+    <aside className="flex w-full shrink-0 lg:sticky lg:top-0 lg:min-h-screen lg:w-44 lg:flex-col lg:justify-center">
+      <nav className="flex flex-row flex-wrap gap-x-6 gap-y-3 lowercase lg:flex-col lg:gap-10">
         {links.map(({ href, label }) => (
           <Link
             key={href}

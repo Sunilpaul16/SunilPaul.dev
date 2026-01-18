@@ -46,7 +46,7 @@ export function GitHubContributionGrid() {
   return (
     <div className="overflow-x-auto pb-1">
       <div
-        className="inline-grid gap-[3px] p-4"
+        className="inline-grid gap-[3px] py-1 pl-0 pr-4"
         style={{
           gridTemplateColumns: `repeat(${WEEKS}, minmax(0, 12px))`,
           gridTemplateRows: `repeat(${DAYS}, minmax(0, 12px))`,

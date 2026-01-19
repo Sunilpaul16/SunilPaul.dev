@@ -25,7 +25,8 @@ function cellLevel(week: number, day: number): number {
   return 4;
 }
 
-const WEEKS = 48;
+/** ~53 weeks matches GitHub’s full-year contribution grid (12 months). */
+const WEEKS = 53;
 const DAYS = 7;
 
 export function GitHubContributionGrid() {
@@ -46,13 +47,13 @@ export function GitHubContributionGrid() {
   return (
     <div className="overflow-x-auto pb-1">
       <div
-        className="inline-grid gap-[3px] py-1 pl-0 pr-4"
+        className="inline-grid gap-0.75 py-1 pl-0 pr-4"
         style={{
           gridTemplateColumns: `repeat(${WEEKS}, minmax(0, 12px))`,
           gridTemplateRows: `repeat(${DAYS}, minmax(0, 12px))`,
         }}
         role="img"
-        aria-label="GitHub-style contribution activity (placeholder)"
+        aria-label="GitHub-style contribution activity, last 12 months (placeholder)"
       >
         {cells}
       </div>

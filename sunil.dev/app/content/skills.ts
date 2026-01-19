@@ -13,7 +13,7 @@ export type SkillGroup = {
 export const SKILL_GROUPS: SkillGroup[] = [
     {
         id: 'frontend',
-        title: 'frontend',
+        title: 'Frontend',
         description: 'Interfaces, layout, and keeping things fast.',
         skills: [
             { name: 'React', level: 90 },
@@ -24,7 +24,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     },
     {
         id: 'languages',
-        title: 'languages',
+        title: 'Languages',
         description: 'What I reach for first when I’m typing code.',
         skills: [
             { name: 'TypeScript', level: 92 },
@@ -36,7 +36,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
 
     {
         id: 'systems',
-        title: 'systems & tooling',
+        title: 'Systems & tooling',
         description: 'Shipping, debugging, and living in the terminal.',
         skills: [
             { name: 'Git', level: 86 },
@@ -51,13 +51,12 @@ export const SKILL_EXTRAS: string[] = [
     'REST APIs',
     'Node.js',
     'Postgres',
-    'testing',
+    'Testing',
     'MangoDB',
     'PostgreSQL',
-    'performance',
-    'react native',
+    'React native',
     'Vercel',
     'Figma',
-    'markdown',
-    'debugging',
+    'Markdown',
+    'Debugging',
 ];

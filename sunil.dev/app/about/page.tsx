@@ -1,18 +1,9 @@
-import Link from 'next/link';
-
 export default function AboutPage() {
     return (
         <div className="mx-auto flex min-h-full max-w-2xl flex-col gap-10 px-5 py-12 md:px-8">
-            <Link
-                href="/"
-                className="text-sm lowercase text-zinc-500 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-                ← home
-            </Link>
-
             <header>
                 <h1 className="text-3xl font-light tracking-tight text-zinc-950 dark:text-zinc-50">
-                    about
+                    About Me
                 </h1>
                 <p className="mt-3 max-w-prose text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
                     I’m{' '}
@@ -26,8 +17,8 @@ export default function AboutPage() {
             </header>
 
             <section className="space-y-3">
-                <h2 className="text-sm font-medium lowercase text-zinc-500 dark:text-zinc-400">
-                    right now
+                <h2 className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                    Right now
                 </h2>
                 <p className="max-w-prose leading-relaxed text-zinc-700 dark:text-zinc-300">
                     Most of my time is on the web stack: TypeScript, React, and
@@ -39,8 +30,8 @@ export default function AboutPage() {
             </section>
 
             <section className="space-y-3">
-                <h2 className="text-sm font-medium lowercase text-zinc-500 dark:text-zinc-400">
-                    before that
+                <h2 className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                    Before that
                 </h2>
                 <p className="max-w-prose leading-relaxed text-zinc-700 dark:text-zinc-300">
                     I got into coding later than most people. It started more
@@ -52,8 +43,8 @@ export default function AboutPage() {
             </section>
 
             <section className="space-y-3">
-                <h2 className="text-sm font-medium lowercase text-zinc-500 dark:text-zinc-400">
-                    outside the editor
+                <h2 className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                    Outside the editor
                 </h2>
                 <p className="max-w-prose leading-relaxed text-zinc-700 dark:text-zinc-300">
                     I go for runs sometimes, spend my free time playing games or

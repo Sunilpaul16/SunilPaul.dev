@@ -1,6 +1,5 @@
 'use client';
 
-import type { CSSProperties } from 'react';
 import { useMemo, useState } from 'react';
 import type { SkillGroup } from '../content/skills';
 
@@ -18,14 +17,8 @@ export function SkillsShowcase({ groups, extras }: Props) {
     );
 
     return (
-        <div className="relative space-y-14">
-            <div
-                className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-linear-to-br from-violet-400/15 via-transparent to-emerald-400/10 blur-3xl dark:from-violet-500/10 dark:to-emerald-500/10"
-                aria-hidden
-            />
-
-            {/* Tabbed comfort meters */}
-            <section className="relative space-y-6">
+        <div className="space-y-14">
+            <section className="space-y-6">
                 <div className="flex flex-wrap gap-2">
                     {groups.map((g) => {
                         const isOn = g.id === activeGroup?.id;
@@ -46,45 +39,26 @@ export function SkillsShowcase({ groups, extras }: Props) {
                     })}
                 </div>
 
-                {activeGroup ? (
-                    <div
-                        key={activeGroup.id}
-                        className="skills-group-enter space-y-6"
-                    >
+                {activeGroup && (
+                    <div key={activeGroup.id} className="skills-group-enter space-y-5">
                         <p className="max-w-prose text-zinc-600 dark:text-zinc-400">
                             {activeGroup.description}
                         </p>
-                        <ul className="space-y-5">
-                            {activeGroup.skills.map((skill, i) => (
-                                <li key={skill.name}>
-                                    <div className="flex items-baseline justify-between gap-4 text-sm">
-                                        <span className="font-medium text-zinc-950 dark:text-zinc-100">
-                                            {skill.name}
-                                        </span>
-                                        <span className="tabular-nums text-zinc-400 dark:text-zinc-500">
-                                            {skill.level}%
-                                        </span>
-                                    </div>
-                                    <div className="mt-2 h-2 overflow-hidden rounded-full bg-zinc-200/90 dark:bg-zinc-800">
-                                        <div
-                                            className="skill-meter-inner h-full rounded-full bg-linear-to-r from-zinc-700 via-zinc-800 to-zinc-900 dark:from-zinc-300 dark:via-zinc-200 dark:to-zinc-100"
-                                            style={
-                                                {
-                                                    '--fill': `${skill.level}%`,
-                                                    '--delay': `${120 + i * 70}ms`,
-                                                } as CSSProperties
-                                            }
-                                        />
-                                    </div>
+                        <ul className="flex flex-wrap gap-x-8 gap-y-3">
+                            {activeGroup.skills.map((skill) => (
+                                <li
+                                    key={skill}
+                                    className="text-base text-zinc-800 dark:text-zinc-200"
+                                >
+                                    {skill}
                                 </li>
                             ))}
                         </ul>
                     </div>
-                ) : null}
+                )}
             </section>
 
-            {/* Floating extras cloud */}
-            <section className="relative space-y-4">
+            <section className="space-y-4">
                 <h2 className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
                     Also in the mix
                 </h2>

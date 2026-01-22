@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, JetBrains_Mono } from 'next/font/google';
+import { ViewTransition } from 'react';
 import { HomeSidebar } from './components/HomeSidebar';
 import './globals.css';
 
@@ -28,12 +29,16 @@ export default function RootLayout({
             lang="en"
             className={`${geistSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
         >
-            <body className="min-h-full flex flex-col">
-                <div className="flex min-h-screen w-full flex-1 flex-col bg-zinc-50 dark:bg-zinc-950 lg:flex-row lg:items-stretch">
-                    <main className="flex min-h-0 min-w-0 flex-4 flex-col">
-                        {children}
-                    </main>
+            <body className="h-full">
+                <div className="flex h-full flex-col bg-zinc-50 dark:bg-zinc-950 lg:flex-row">
+                    {/* First in DOM → sticky top bar on mobile.
+                        lg:order-last → right sidebar on desktop. */}
                     <HomeSidebar />
+                    <main className="min-w-0 flex-1 overflow-y-auto lg:order-first">
+                        <ViewTransition name="main-content">
+                            {children}
+                        </ViewTransition>
+                    </main>
                 </div>
             </body>
         </html>

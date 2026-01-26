@@ -68,3 +68,94 @@ body {
 .skill-pill {
     animation: skill-pill-pop 0.5s ease-out backwards;
 }
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fade-in-up 0.5s ease-out both;
+}
+
+/* ── Scrollbar: hidden everywhere ────────────────────────── */
+html,
+body {
+    overflow: hidden; /* body never scrolls; only main does */
+}
+
+main {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge legacy */
+}
+main::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+/* ── View Transitions ─────────────────────────────────────── */
+
+/* Page content: fade out, then slide up + fade in */
+::view-transition-old(main-content) {
+    animation: 180ms ease-in both vt-out;
+}
+::view-transition-new(main-content) {
+    animation: 260ms ease-out 140ms both vt-in;
+}
+
+@keyframes vt-out {
+    to {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes vt-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+}
+
+/* Nav stays locked in place during page transitions */
+::view-transition-group(site-nav) {
+    animation-duration: 0s;
+    z-index: 100;
+}
+::view-transition-old(site-nav) {
+    display: none;
+}
+::view-transition-new(site-nav) {
+    animation: none;
+}
+
+/* Honour reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(*),
+    ::view-transition-new(*),
+    ::view-transition-group(*) {
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+    }
+}
+
+/* ── Nav link entrance ────────────────────────────────────── */
+@keyframes nav-link-in {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.nav-link {
+    animation: nav-link-in 0.4s ease-out both;
+}

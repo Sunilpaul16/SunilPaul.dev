@@ -19,7 +19,7 @@ export default function SkillsPage() {
                     Skills
                 </h1>
                 <p className="max-w-prose text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    A subjective map of what I&apos;m comfortable with — not a
+                    A subjective map of what I&apos;m comfortable with not a
                     scoreboard, just how things feel day to day.
                 </p>
             </header>

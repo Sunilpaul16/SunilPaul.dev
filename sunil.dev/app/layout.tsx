@@ -34,7 +34,7 @@ export default function RootLayout({
             className={`${geistSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
         >
             <body className="h-full">
-                <div className="flex h-full flex-col bg-zinc-50 dark:bg-zinc-950 lg:flex-row">
+                <div className="flex h-full flex-col bg-zinc-50 dark:bg-bg lg:flex-row">
                     {/* First in DOM → sticky top bar on mobile.
                         lg:order-last → right sidebar on desktop. */}
                     <HomeSidebar />

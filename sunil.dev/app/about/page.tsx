@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+    title: 'About',
+    description: 'Frontend developer based in the UK. TypeScript, React, and too much time spent on details.',
+};
 
 export default function AboutPage() {
     return (

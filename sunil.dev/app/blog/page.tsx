@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+    title: 'Writing',
+    description: 'Short notes on setup, habits, and whatever I\'m thinking about.',
+};
 import { formatDate, getAllLogs } from '../content/logs';
 
 export default function BlogIndexPage() {

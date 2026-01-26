@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { ProjectCard } from '../components/ProjectCard';
+
+export const metadata: Metadata = {
+    title: 'Projects',
+    description: 'Hop, PawGang, Trace — things I\'ve built.',
+};
 import { PROJECTS } from '../content/projects';
 
 export default function ProjectsPage() {

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { GitHubContributionGrid } from './components/GitHubContributionGrid';
 import { SocialLinks } from './components/SocialLinks';
-import { formatPostedAt, getAllLogs } from './content/logs';
+import { formatDate, getAllLogs } from './content/logs';
 import { PROJECTS } from './content/projects';
 
 const SOCIAL = {
@@ -148,7 +148,7 @@ export default function Home() {
                                             {post.type}
                                         </span>
                                         <span className="text-xs text-zinc-400 dark:text-zinc-600">
-                                            {formatPostedAt(post.postedAt)}
+                                            {formatDate(post.postedAt)}
                                         </span>
                                     </div>
                                     <p className="text-sm font-medium text-zinc-800 transition-colors group-hover:text-zinc-950 dark:text-zinc-200 dark:group-hover:text-zinc-50">

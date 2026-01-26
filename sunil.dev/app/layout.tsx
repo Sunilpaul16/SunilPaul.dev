@@ -15,8 +15,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    title: 'Sunil',
-    description: 'Portfolio',
+    title: {
+        default: 'Sunil Paul',
+        template: '%s — Sunil Paul',
+    },
+    description:
+        'Frontend developer focused on TypeScript and React. Based in the UK, open to remote work.',
 };
 
 export default function RootLayout({

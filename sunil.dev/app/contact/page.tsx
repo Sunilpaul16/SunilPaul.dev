@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+    title: 'Contact',
+    description: 'Get in touch — open to full-time roles and freelance work.',
+};
 
 const CONTACTS = [
     {

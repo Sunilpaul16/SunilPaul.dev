@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { SkillsShowcase } from '../components/SkillsShowcase';
+
+export const metadata: Metadata = {
+    title: 'Skills',
+    description: 'TypeScript, React, Next.js, and the rest of the stack.',
+};
 import {
     CURRENTLY_EXPLORING,
     SKILL_EXTRAS,

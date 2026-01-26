@@ -110,8 +110,8 @@ export async function GitHubContributionGrid() {
 
     const colTemplate = `repeat(${WEEKS}, minmax(0, ${CELL}px))`;
     const rowTemplate = `repeat(${DAYS}, minmax(0, ${CELL}px))`;
-    // Day-label column width + gap so month labels align with cell columns
-    const dayColOffset = `${CELL + GAP * 2}px`; // ~18 px  (w-5 ≈ 20 + gap-2 = 8 → use calc)
+    // w-5 (20px) day-label col + gap-2 (8px) flex gap = 28px offset for month labels
+    const monthLabelOffset = 28;
 
     return (
         <div className="overflow-x-auto pb-1">
@@ -123,7 +123,7 @@ export async function GitHubContributionGrid() {
                     style={{
                         gridTemplateColumns: colTemplate,
                         columnGap: `${GAP}px`,
-                        marginLeft: `calc(20px + 8px)`, /* w-5 day col + gap-2 */
+                        marginLeft: `${monthLabelOffset}px`,
                     }}
                 >
                     {monthLabels.map(({ col, name }, i) => {

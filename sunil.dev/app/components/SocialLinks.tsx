@@ -8,7 +8,7 @@ type SocialLinksProps = {
 };
 
 const linkBase =
-    'inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/60 px-4 py-2 text-sm text-zinc-600 backdrop-blur-sm transition-all duration-200 hover:-translate-y-px hover:border-zinc-300 hover:bg-white hover:text-zinc-950 hover:shadow-md hover:shadow-zinc-950/5 dark:border-zinc-700/80 dark:bg-zinc-900/50 dark:text-zinc-400 dark:hover:border-accent/50 dark:hover:bg-zinc-900 dark:hover:text-accent';
+    'inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/60 px-4 py-2 text-sm text-zinc-600 backdrop-blur-sm transition-all duration-200 hover:-translate-y-px hover:border-zinc-300 hover:bg-white hover:text-zinc-950 hover:shadow-md hover:shadow-zinc-950/5 dark:border-zinc-700/80 dark:bg-zinc-900/50 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:bg-zinc-900 dark:hover:text-zinc-50';
 
 export function SocialLinks({ linkedin, github, email }: SocialLinksProps) {
     return (

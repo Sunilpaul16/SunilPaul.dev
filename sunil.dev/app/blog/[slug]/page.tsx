@@ -29,7 +29,7 @@ export default async function LogPostPage({ params }: Props) {
     if (!post) notFound();
 
     return (
-        <article className="mx-auto flex min-h-full max-w-2xl flex-col gap-10 px-5 py-12 md:px-8">
+        <article className="mx-auto flex min-h-full w-full max-w-4xl flex-col gap-10 px-6 py-12 md:px-10 md:py-16">
             <Link
                 href="/blog"
                 className="group inline-flex items-center gap-1.5 text-sm text-zinc-500 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"

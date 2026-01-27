@@ -22,7 +22,7 @@ export function HomeSidebar() {
 
     return (
         <aside
-            className="sticky top-0 z-40 flex w-full shrink-0 flex-col bg-zinc-50/85 backdrop-blur-md dark:bg-bg/85 lg:order-last lg:h-full lg:w-52 lg:bg-zinc-50 lg:backdrop-blur-none xl:w-60 dark:lg:bg-bg"
+            className="sticky top-0 z-40 flex w-full shrink-0 flex-col bg-zinc-50/85 backdrop-blur-md dark:bg-zinc-950/85 lg:order-last lg:h-full lg:w-52 lg:bg-zinc-50 lg:backdrop-blur-none xl:w-60 dark:lg:bg-zinc-950"
             style={{ viewTransitionName: 'site-nav' }}
         >
             {/* Nav — flex-1 keeps links centred in the upper portion */}
@@ -35,7 +35,7 @@ export function HomeSidebar() {
                             href={href}
                             className={`nav-link group relative flex shrink-0 items-center gap-2.5 transition-all duration-300 capitalize ${
                                 active
-                                    ? 'text-zinc-950 dark:text-accent'
+                                    ? 'text-zinc-950 dark:text-zinc-50'
                                     : 'text-zinc-400 hover:text-zinc-700 dark:text-zinc-500 dark:hover:text-zinc-300'
                             } text-sm font-light tracking-wide sm:text-base lg:text-xl xl:text-2xl`}
                             style={{ animationDelay: `${i * 60}ms` }}
@@ -43,7 +43,7 @@ export function HomeSidebar() {
                             <span
                                 className={`hidden size-1.5 shrink-0 rounded-full transition-all duration-300 lg:block ${
                                     active
-                                        ? 'scale-100 bg-zinc-950 opacity-100 dark:bg-accent'
+                                        ? 'scale-100 bg-zinc-950 opacity-100 dark:bg-zinc-50'
                                         : 'scale-0 opacity-0'
                                 }`}
                                 aria-hidden
@@ -53,7 +53,7 @@ export function HomeSidebar() {
                                 <span
                                     className={`absolute -bottom-0.5 left-0 h-px w-full origin-left rounded-full transition-transform duration-300 ease-out lg:hidden ${
                                         active
-                                            ? 'scale-x-100 bg-zinc-950 dark:bg-accent'
+                                            ? 'scale-x-100 bg-zinc-950 dark:bg-zinc-50'
                                             : 'scale-x-0'
                                     }`}
                                     aria-hidden
@@ -98,14 +98,14 @@ export function HomeSidebar() {
                 </div>
 
                 {/* CV */}
-                <a
+                <Link
                     href="/projects/resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-zinc-500 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-accent"
+                    className="text-xs text-zinc-500 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
                 >
                     CV / Resume →
-                </a>
+                </Link>
             </div>
         </aside>
     );

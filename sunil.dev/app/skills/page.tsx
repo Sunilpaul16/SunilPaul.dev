@@ -13,7 +13,7 @@ import {
 
 export default function SkillsPage() {
     return (
-        <div className="mx-auto flex min-h-full max-w-3xl flex-col gap-12 px-5 py-12 md:gap-14 md:px-8">
+        <div className="mx-auto flex min-h-full w-full max-w-4xl flex-col gap-12 px-6 py-12 md:gap-14 md:px-10 md:py-16">
             <header className="space-y-3">
                 <h1 className="text-3xl font-light tracking-tight text-zinc-950 dark:text-zinc-50">
                     Skills

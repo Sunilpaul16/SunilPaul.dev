@@ -27,7 +27,7 @@ export function SkillsShowcase({ groups, extras }: Props) {
                                 key={g.id}
                                 type="button"
                                 onClick={() => setActiveId(g.id)}
-                                className={`rounded-full border px-4 py-2 text-sm transition-all duration-300 ${
+                                className={`rounded-full border px-4 py-2 text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] ${
                                     isOn
                                         ? 'border-zinc-950 bg-zinc-950 text-white shadow-lg shadow-zinc-950/15 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:shadow-zinc-100/10'
                                         : 'border-zinc-200 bg-white/60 text-zinc-600 hover:border-zinc-300 hover:bg-white dark:border-zinc-700 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:bg-zinc-900'
@@ -70,7 +70,7 @@ export function SkillsShowcase({ groups, extras }: Props) {
                     {extras.map((label, i) => (
                         <span
                             key={label}
-                            className="skill-pill inline-flex items-center rounded-full border border-zinc-200/90 bg-white/70 px-3 py-1.5 text-xs text-zinc-700 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-300 dark:hover:border-zinc-500"
+                            className="skill-pill inline-flex items-center rounded-full border border-zinc-200/90 bg-white/70 px-3 py-1.5 text-xs text-zinc-700 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
                             style={{ animationDelay: `${i * 35}ms` }}
                         >
                             {label}

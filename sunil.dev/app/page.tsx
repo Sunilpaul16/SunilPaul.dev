@@ -20,8 +20,14 @@ export default function Home() {
 
     return (
         <div className="relative mx-auto flex w-full max-w-4xl flex-1 flex-col gap-20 px-6 py-12 md:px-10 md:py-16">
+            {/* Blue glow — top right */}
+            {/* <div
+                className="pointer-events-none absolute -right-24 -top-24 size-[520px] rounded-full bg-linear-to-bl from-blue-500/18 via-blue-400/5 to-transparent blur-3xl dark:from-blue-500/22"
+                aria-hidden
+            /> */}
+            {/* Violet accent — bottom left */}
             <div
-                className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full bg-linear-to-bl from-zinc-200/60 via-transparent to-transparent blur-3xl dark:from-zinc-800/30"
+                className="pointer-events-none absolute -bottom-32 -left-16 size-80 rounded-full bg-linear-to-tr from-violet-500/10 via-transparent to-transparent blur-3xl dark:from-violet-500/15"
                 aria-hidden
             />
 
@@ -45,7 +51,7 @@ export default function Home() {
                 <div className="flex flex-wrap items-center gap-4">
                     <Link
                         href="/projects"
-                        className="inline-flex items-center gap-2 rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200"
+                        className="inline-flex items-center gap-2 rounded-full bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-zinc-700 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200 dark:hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
                     >
                         View my work
                     </Link>
@@ -90,7 +96,7 @@ export default function Home() {
                         <Link
                             key={project.id}
                             href="/projects"
-                            className="group overflow-hidden rounded-xl border border-zinc-200/80 bg-white/60 transition-all duration-200 hover:border-zinc-300 hover:shadow-lg hover:shadow-zinc-950/5 dark:border-zinc-800 dark:bg-zinc-900/40 dark:hover:border-zinc-700 dark:hover:shadow-zinc-950/30"
+                            className="group overflow-hidden rounded-xl border border-zinc-200/80 bg-white/60 transition-all duration-200 hover:border-blue-200/60 hover:shadow-lg hover:shadow-blue-500/8 dark:border-zinc-800 dark:bg-zinc-900/40 dark:hover:border-blue-500/25 dark:hover:shadow-blue-500/15"
                         >
                             <div className="relative aspect-video overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                                 {project.image ? (
@@ -140,7 +146,7 @@ export default function Home() {
                         <li key={post.slug}>
                             <Link
                                 href={`/blog/${post.slug}`}
-                                className="group flex items-start justify-between gap-4 py-5"
+                                className="group flex items-center justify-between gap-4 py-5"
                             >
                                 <div className="min-w-0 flex-1 space-y-2">
                                     <div className="flex items-center gap-2">
@@ -158,7 +164,7 @@ export default function Home() {
                                         {post.paragraphs[0]}
                                     </p>
                                 </div>
-                                <span className="mt-1 shrink-0 text-zinc-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-zinc-600 dark:text-zinc-700 dark:group-hover:text-zinc-400">
+                                <span className="shrink-0 text-zinc-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-zinc-600 dark:text-zinc-700 dark:group-hover:text-zinc-400">
                                     →
                                 </span>
                             </Link>

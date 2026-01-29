@@ -16,18 +16,38 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
     {
+        id: 'trace',
+        name: 'Trace',
+        tagline: 'One place for every show, game, and book.',
+        description:
+            'A mobile app to track virtual activities (books, games, movies, TV shows) all in one place. Built with React Native, Expo, and TypeScript for cross-platform compatibility. Handled the full development lifecycle: planning, design, implementation, and deployment.',
+        tags: ['React Native', 'TypeScript', 'Expo'],
+        image: '/projects/trace.jpg',
+        links: {
+            github: 'https://github.com/Sunilpaul16',
+        },
+        featured: true,
+        status: 'live',
+    },
+    {
         id: 'hop',
         name: 'Hop',
         tagline: 'Real-time watch parties and collaborative browsing.',
         description:
-            'A web app that lets users host watch parties, collaborate on projects, or browse the web together in real time. Built with Next.js and TypeScript, WebSocket for live sync, and PostgreSQL for persistence. Worked closely with a backend team across the full Agile lifecycle, defined API contracts, and shipped automated CI/CD workflows via GitHub Actions.',
-        tags: ['TypeScript', 'Next.js', 'WebSocket', 'Node.js', 'PostgreSQL', 'Docker'],
+            'A web app for hosting watch parties, collaborating on projects, and browsing the web together in real time. Built with Next.js, TypeScript, WebSockets, and PostgreSQL. Worked with a backend team across the full Agile lifecycle and shipped CI/CD workflows via GitHub Actions.',
+        tags: [
+            'TypeScript',
+            'Next.js',
+            'WebSocket',
+            'Node.js',
+            'PostgreSQL',
+            'Docker',
+        ],
         image: '/projects/hop-1.png',
         gif: '/projects/hop.gif',
         links: {
             github: 'https://github.com/Sunilpaul16',
         },
-        featured: true,
         status: 'archived',
     },
     {
@@ -43,19 +63,6 @@ export const PROJECTS: Project[] = [
             github: 'https://github.com/Sunilpaul16',
         },
         status: 'archived',
-    },
-    {
-        id: 'trace',
-        name: 'Trace',
-        tagline: 'One place for every show, game, and book.',
-        description:
-            'A mobile app to track virtual activities (books, games, movies, TV shows) all in one place. Built with React Native, Expo, and TypeScript for cross-platform compatibility. Handled the full development lifecycle: planning, design, implementation, and deployment.',
-        tags: ['React Native', 'TypeScript', 'Expo'],
-        image: '/projects/trace.png',
-        links: {
-            github: 'https://github.com/Sunilpaul16',
-        },
-        status: 'live',
     },
     {
         id: 'next',

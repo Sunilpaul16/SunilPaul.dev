@@ -14,7 +14,7 @@
     --color-accent: #2563eb;
     --color-bg: #0f172a;
     --color-text: #e2e8f0;
-    --font-sans: var(--font-geist-sans);
+    --font-sans: var(--font-jetbrains-mono);
     --font-mono: var(--font-jetbrains-mono);
 }
 
@@ -28,7 +28,7 @@
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+    font-family: var(--font-sans), monospace;
 }
 
 @keyframes skills-panel-in {
@@ -108,10 +108,10 @@ main::-webkit-scrollbar {
 
 /* Page content: fade out, then slide up + fade in */
 ::view-transition-old(main-content) {
-    animation: 180ms ease-in both vt-out;
+    animation: 100ms ease-in both vt-out;
 }
 ::view-transition-new(main-content) {
-    animation: 260ms ease-out 140ms both vt-in;
+    animation: 180ms ease-out 70ms both vt-in;
 }
 
 @keyframes vt-out {
@@ -148,6 +148,20 @@ main::-webkit-scrollbar {
         animation-duration: 0s !important;
         animation-delay: 0s !important;
     }
+
+    .glow-pulse {
+        animation: none;
+    }
+}
+
+/* ── Background glow pulse ───────────────────────────────── */
+@keyframes glow-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.glow-pulse {
+    animation: glow-pulse 4s ease-in-out infinite;
 }
 
 /* ── Nav link entrance ────────────────────────────────────── */

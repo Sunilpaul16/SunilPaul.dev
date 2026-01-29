@@ -29,7 +29,7 @@ export default function BlogIndexPage() {
                             href={`/blog/${post.slug}`}
                             className="group block py-7 transition-colors"
                         >
-                            <div className="flex items-start justify-between gap-4">
+                            <div className="flex items-center justify-between gap-4">
                                 <div className="min-w-0 flex-1 space-y-3">
                                     <div className="flex flex-wrap items-center gap-2">
                                         <span className="rounded-md border border-zinc-200/80 bg-zinc-100/80 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-zinc-500 dark:border-zinc-700/80 dark:bg-zinc-800/60 dark:text-zinc-400">
@@ -49,7 +49,7 @@ export default function BlogIndexPage() {
                                     </p>
                                 </div>
 
-                                <span className="mt-1 shrink-0 text-zinc-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-zinc-600 dark:text-zinc-700 dark:group-hover:text-zinc-400">
+                                <span className="shrink-0 text-zinc-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-zinc-600 dark:text-zinc-700 dark:group-hover:text-zinc-400">
                                     →
                                 </span>
                             </div>

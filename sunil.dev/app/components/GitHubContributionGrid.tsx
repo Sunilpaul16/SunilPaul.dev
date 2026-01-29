@@ -1,35 +1,23 @@
 import {
     countToLevel,
-    fetchContributionWeeks,
+    fetchContributions,
     type ContributionWeek,
 } from '../lib/github';
+import {
+    GitHubContributionGridClient,
+    type CellMeta,
+} from './GitHubContributionGridClient';
 
 const GITHUB_USERNAME = 'Sunilpaul16';
 const WEEKS = 53;
 const DAYS = 7;
-const CELL = 12; // px — must match size-3
-const GAP = 3;   // px — must match gap-0.75
 
 const MONTH_NAMES = [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
 ] as const;
 
-// Show Mon / Wed / Fri; empty string = invisible row
-const DAY_LABELS = ['', 'Mon', '', 'Wed', '', 'Fri', ''] as const;
-
 type MonthLabel = { col: number; name: string };
-
-function levelClass(level: number): string {
-    const levels = [
-        'bg-zinc-100 dark:bg-zinc-800',
-        'bg-emerald-200/90 dark:bg-emerald-900/80',
-        'bg-emerald-400/85 dark:bg-emerald-700/85',
-        'bg-emerald-600/90 dark:bg-emerald-500/70',
-        'bg-emerald-800 dark:bg-emerald-400/60',
-    ];
-    return levels[level] ?? levels[0];
-}
 
 function mockLevel(week: number, day: number): number {
     const n = (week * 17 + day * 31) % 97;
@@ -40,21 +28,49 @@ function mockLevel(week: number, day: number): number {
     return 4;
 }
 
-function buildGridFromApi(weeks: ContributionWeek[]): number[][] {
-    const grid: number[][] = Array.from({ length: WEEKS }, () =>
-        Array(DAYS).fill(0),
+function buildMockDate(week: number, day: number): string {
+    const today = new Date();
+    const start = new Date(today.getTime() - (WEEKS - 1) * 7 * 24 * 60 * 60 * 1000);
+    const d = new Date(start.getTime() + (week * 7 + day) * 24 * 60 * 60 * 1000);
+    return d.toISOString().slice(0, 10);
+}
+
+function mockCount(level: number): number {
+    if (level === 0) return 0;
+    if (level === 1) return 2;
+    if (level === 2) return 6;
+    if (level === 3) return 14;
+    return 22;
+}
+
+function buildCellsFromApi(apiWeeks: ContributionWeek[]): CellMeta[][] {
+    const cells: CellMeta[][] = Array.from({ length: WEEKS }, () =>
+        Array.from({ length: DAYS }, () => ({ level: 0, date: '', count: 0 })),
     );
-    const offset = WEEKS - weeks.length;
-    weeks.forEach((week, wi) => {
+    const offset = WEEKS - apiWeeks.length;
+    apiWeeks.forEach((week, wi) => {
         week.contributionDays.forEach((day) => {
             const col = offset + wi;
             const row = day.weekday;
             if (col >= 0 && col < WEEKS && row >= 0 && row < DAYS) {
-                grid[col][row] = countToLevel(day.contributionCount);
+                cells[col][row] = {
+                    level: countToLevel(day.contributionCount),
+                    date: day.date,
+                    count: day.contributionCount,
+                };
             }
         });
     });
-    return grid;
+    return cells;
+}
+
+function buildMockCells(): CellMeta[][] {
+    return Array.from({ length: WEEKS }, (_, wi) =>
+        Array.from({ length: DAYS }, (_, di) => {
+            const level = mockLevel(wi, di);
+            return { level, date: buildMockDate(wi, di), count: mockCount(level) };
+        }),
+    );
 }
 
 function getMonthLabels(apiWeeks: ContributionWeek[] | null): MonthLabel[] {
@@ -72,7 +88,6 @@ function getMonthLabels(apiWeeks: ContributionWeek[] | null): MonthLabel[] {
             }
         });
     } else {
-        // Derive month positions from today's date for the mock grid
         const today = new Date();
         const start = new Date(today.getTime() - (WEEKS - 1) * 7 * 24 * 60 * 60 * 1000);
         let last = -1;
@@ -89,92 +104,29 @@ function getMonthLabels(apiWeeks: ContributionWeek[] | null): MonthLabel[] {
     return labels;
 }
 
-export async function GitHubContributionGrid() {
-    const apiWeeks = await fetchContributionWeeks(GITHUB_USERNAME);
-    const grid = apiWeeks ? buildGridFromApi(apiWeeks) : null;
-    const monthLabels = getMonthLabels(apiWeeks);
-
-    const cells = [];
-    for (let week = 0; week < WEEKS; week++) {
-        for (let day = 0; day < DAYS; day++) {
-            const level = grid ? (grid[week][day] ?? 0) : mockLevel(week, day);
-            cells.push(
-                <div
-                    key={`${week}-${day}`}
-                    style={{ gridColumn: week + 1, gridRow: day + 1 }}
-                    className={`size-3 shrink-0 rounded-sm ${levelClass(level)}`}
-                />,
-            );
+function computeMockTotal(): number {
+    let total = 0;
+    for (let wi = 0; wi < WEEKS; wi++) {
+        for (let di = 0; di < DAYS; di++) {
+            total += mockCount(mockLevel(wi, di));
         }
     }
+    return total;
+}
 
-    const colTemplate = `repeat(${WEEKS}, minmax(0, ${CELL}px))`;
-    const rowTemplate = `repeat(${DAYS}, minmax(0, ${CELL}px))`;
-    // w-5 (20px) day-label col + gap-2 (8px) flex gap = 28px offset for month labels
-    const monthLabelOffset = 28;
+export async function GitHubContributionGrid() {
+    const data = await fetchContributions(GITHUB_USERNAME);
+    const cells = data ? buildCellsFromApi(data.weeks) : buildMockCells();
+    const monthLabels = getMonthLabels(data?.weeks ?? null);
+    const total = data?.total ?? computeMockTotal();
 
     return (
-        <div className="overflow-x-auto pb-1">
-            <div className="inline-block">
-
-                {/* ── Month labels ─────────────────────────────── */}
-                <div
-                    className="mb-1.5 grid"
-                    style={{
-                        gridTemplateColumns: colTemplate,
-                        columnGap: `${GAP}px`,
-                        marginLeft: `${monthLabelOffset}px`,
-                    }}
-                >
-                    {monthLabels.map(({ col, name }, i) => {
-                        const nextCol = monthLabels[i + 1]?.col ?? WEEKS;
-                        return (
-                            <span
-                                key={col}
-                                style={{ gridColumn: `${col + 1} / span ${nextCol - col}` }}
-                                className="truncate text-[10px] leading-none text-zinc-400 dark:text-zinc-600"
-                            >
-                                {name}
-                            </span>
-                        );
-                    })}
-                </div>
-
-                {/* ── Day labels + cells ───────────────────────── */}
-                <div className="flex items-start gap-2">
-
-                    {/* Day label column — same row sizing as the cell grid */}
-                    <div
-                        className="grid w-5 shrink-0"
-                        style={{
-                            gridTemplateRows: rowTemplate,
-                            rowGap: `${GAP}px`,
-                        }}
-                    >
-                        {DAY_LABELS.map((label, i) => (
-                            <span
-                                key={i}
-                                className="flex items-center justify-end text-[10px] leading-none text-zinc-400 dark:text-zinc-600"
-                            >
-                                {label}
-                            </span>
-                        ))}
-                    </div>
-
-                    {/* Contribution cells */}
-                    <div
-                        className="inline-grid gap-0.75"
-                        style={{
-                            gridTemplateColumns: colTemplate,
-                            gridTemplateRows: rowTemplate,
-                        }}
-                        role="img"
-                        aria-label={`GitHub contribution activity for ${GITHUB_USERNAME}, last 12 months${!apiWeeks ? ' (placeholder)' : ''}`}
-                    >
-                        {cells}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <GitHubContributionGridClient
+            cells={cells}
+            monthLabels={monthLabels}
+            total={total}
+            weeks={WEEKS}
+            days={DAYS}
+        />
     );
 }

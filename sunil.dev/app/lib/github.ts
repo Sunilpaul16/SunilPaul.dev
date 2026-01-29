@@ -8,6 +8,11 @@ export type ContributionWeek = {
     contributionDays: ContributionDay[];
 };
 
+export type ContributionData = {
+    weeks: ContributionWeek[];
+    total: number;
+};
+
 const QUERY = `
   query($login: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $login) {
@@ -27,9 +32,9 @@ const QUERY = `
   }
 `;
 
-export async function fetchContributionWeeks(
+export async function fetchContributions(
     username: string,
-): Promise<ContributionWeek[] | null> {
+): Promise<ContributionData | null> {
     const token = process.env.GITHUB_TOKEN;
     if (!token) return null;
 
@@ -57,10 +62,14 @@ export async function fetchContributionWeeks(
         if (!res.ok) return null;
 
         const json = await res.json();
-        return (
-            json.data?.user?.contributionsCollection?.contributionCalendar
-                ?.weeks ?? null
-        );
+        const calendar =
+            json.data?.user?.contributionsCollection?.contributionCalendar;
+        if (!calendar) return null;
+
+        return {
+            weeks: calendar.weeks ?? [],
+            total: calendar.totalContributions ?? 0,
+        };
     } catch {
         return null;
     }

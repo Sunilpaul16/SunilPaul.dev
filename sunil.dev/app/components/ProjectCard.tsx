@@ -46,6 +46,7 @@ export function ProjectCard({ project, featured = false }: Props) {
                         src={project.image}
                         alt={project.name}
                         fill
+                        loading={featured ? 'eager' : 'lazy'}
                         className={`object-cover transition-opacity duration-500 ${showGif ? 'opacity-0' : 'opacity-100'}`}
                         unoptimized={project.image.endsWith('.gif')}
                         sizes={

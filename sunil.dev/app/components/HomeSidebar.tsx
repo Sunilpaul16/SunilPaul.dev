@@ -23,7 +23,6 @@ export function HomeSidebar() {
     return (
         <aside
             className="sticky top-0 z-40 flex w-full shrink-0 flex-col bg-zinc-50/85 backdrop-blur-md dark:bg-zinc-950/85 lg:order-last lg:h-full lg:w-52 lg:bg-zinc-50 lg:backdrop-blur-none xl:w-60 dark:lg:bg-zinc-950"
-            style={{ viewTransitionName: 'site-nav' }}
         >
             {/* Nav — flex-1 keeps links centred in the upper portion */}
             <nav className="flex flex-row items-center gap-5 overflow-x-auto px-5 py-3.5 sm:gap-7 sm:px-6 lg:flex lg:flex-1 lg:flex-col lg:items-start lg:justify-center lg:gap-9 lg:overflow-x-visible lg:px-8 lg:py-12 xl:gap-11">

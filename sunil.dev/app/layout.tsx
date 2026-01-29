@@ -41,7 +41,7 @@ export default function RootLayout({
                         zIndex: 0,
                     }}
                 />
-                <div className="relative z-[1] flex h-full flex-col bg-zinc-50 dark:bg-transparent lg:flex-row">
+                <div className="relative z-1 flex h-full flex-col bg-zinc-50 dark:bg-transparent lg:flex-row">
                     <HomeSidebar />
                     <main className="min-w-0 flex-1 overflow-y-auto lg:order-first">
                         <ViewTransition name="main-content">

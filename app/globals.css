@@ -1,0 +1,181 @@
+@import 'tailwindcss';
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --color-accent: #f70031;
+    --color-bg: #0f172a;
+    --color-text: #e2e8f0;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-accent: #2563eb;
+    --color-bg: #0f172a;
+    --color-text: #e2e8f0;
+    --font-sans: var(--font-jetbrains-mono);
+    --font-mono: var(--font-jetbrains-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), monospace;
+}
+
+@keyframes skills-panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skill-meter-reveal {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes skill-pill-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.skills-group-enter {
+    animation: skills-panel-in 0.45s ease-out both;
+}
+
+.skill-meter-inner {
+    width: var(--fill);
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: skill-meter-reveal 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--delay, 0ms);
+}
+
+.skill-pill {
+    animation: skill-pill-pop 0.5s ease-out backwards;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fade-in-up 0.5s ease-out both;
+}
+
+/* ── Scrollbar: hidden everywhere ────────────────────────── */
+html,
+body {
+    overflow: hidden; /* body never scrolls; only main does */
+}
+
+main {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge legacy */
+}
+main::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+/* ── View Transitions ─────────────────────────────────────── */
+
+/* Page content: fade out, then slide up + fade in */
+::view-transition-old(main-content) {
+    animation: 100ms ease-in both vt-out;
+}
+::view-transition-new(main-content) {
+    animation: 180ms ease-out 70ms both vt-in;
+}
+
+@keyframes vt-out {
+    to {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes vt-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+}
+
+/* Nav stays locked in place during page transitions */
+::view-transition-group(site-nav) {
+    animation-duration: 0s;
+    z-index: 100;
+}
+::view-transition-old(site-nav) {
+    display: none;
+}
+::view-transition-new(site-nav) {
+    animation: none;
+}
+
+/* Honour reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(*),
+    ::view-transition-new(*),
+    ::view-transition-group(*) {
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+    }
+
+    .glow-pulse {
+        animation: none;
+    }
+}
+
+/* ── Background glow pulse ───────────────────────────────── */
+@keyframes glow-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.glow-pulse {
+    animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* ── Nav link entrance ────────────────────────────────────── */
+@keyframes nav-link-in {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.nav-link {
+    animation: nav-link-in 0.4s ease-out both;
+}

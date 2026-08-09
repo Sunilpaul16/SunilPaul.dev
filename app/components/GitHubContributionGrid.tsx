@@ -19,6 +19,7 @@ const MONTH_NAMES = [
 
 type MonthLabel = { col: number; name: string };
 
+/*
 function mockLevel(week: number, day: number): number {
     const n = (week * 17 + day * 31) % 97;
     if (n < 55) return 0;
@@ -42,6 +43,7 @@ function mockCount(level: number): number {
     if (level === 3) return 14;
     return 22;
 }
+*/
 
 function buildCellsFromApi(apiWeeks: ContributionWeek[]): CellMeta[][] {
     const cells: CellMeta[][] = Array.from({ length: WEEKS }, () =>
@@ -64,6 +66,7 @@ function buildCellsFromApi(apiWeeks: ContributionWeek[]): CellMeta[][] {
     return cells;
 }
 
+/*
 function buildMockCells(): CellMeta[][] {
     return Array.from({ length: WEEKS }, (_, wi) =>
         Array.from({ length: DAYS }, (_, di) => {
@@ -72,7 +75,9 @@ function buildMockCells(): CellMeta[][] {
         }),
     );
 }
+*/
 
+/*
 function getMonthLabels(apiWeeks: ContributionWeek[] | null): MonthLabel[] {
     const labels: MonthLabel[] = [];
 
@@ -103,7 +108,26 @@ function getMonthLabels(apiWeeks: ContributionWeek[] | null): MonthLabel[] {
 
     return labels;
 }
+*/
 
+function getMonthLabels(apiWeeks: ContributionWeek[]): MonthLabel[] {
+    const labels: MonthLabel[] = [];
+
+    let last = -1;
+    const offset = WEEKS - apiWeeks.length;
+    apiWeeks.forEach((week, wi) => {
+        if (!week.contributionDays.length) return;
+        const month = new Date(week.contributionDays[0].date).getMonth();
+        if (month !== last) {
+            labels.push({ col: offset + wi, name: MONTH_NAMES[month] });
+            last = month;
+        }
+    });
+
+    return labels;
+}
+
+/*
 function computeMockTotal(): number {
     let total = 0;
     for (let wi = 0; wi < WEEKS; wi++) {
@@ -113,12 +137,22 @@ function computeMockTotal(): number {
     }
     return total;
 }
+*/
 
 export async function GitHubContributionGrid() {
     const data = await fetchContributions(GITHUB_USERNAME);
+
+    /*
     const cells = data ? buildCellsFromApi(data.weeks) : buildMockCells();
     const monthLabels = getMonthLabels(data?.weeks ?? null);
     const total = data?.total ?? computeMockTotal();
+    */
+
+    if (!data) return null;
+
+    const cells = buildCellsFromApi(data.weeks);
+    const monthLabels = getMonthLabels(data.weeks);
+    const total = data.total;
 
     return (
         <GitHubContributionGridClient
